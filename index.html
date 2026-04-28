@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lift Inventory Tracker</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="app-header">
+    <div>
+      <p class="eyebrow">Equipment Tracker</p>
+      <h1>Lift Inventory Tracker</h1>
+      <p class="subtitle">Green = Owned • Yellow = Rental • Click Edit to change any column</p>
+    </div>
+    <div class="header-actions">
+      <button id="exportBtn" class="secondary-btn">Export CSV</button>
+      <button id="resetBtn" class="secondary-btn danger-outline">Reset Demo</button>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="card">
+      <h2>Add Lift</h2>
+
+      <form id="liftForm" class="form-grid">
+        <label>
+          Lift
+          <input id="lift" required placeholder="DC30, R53" />
+        </label>
+
+        <label>
+          Type
+          <input id="type" required placeholder="Reach, Clamp, EPJ Long" />
+        </label>
+
+        <label>
+          Ownership
+          <select id="ownership" required>
+            <option value="Owned">Owned</option>
+            <option value="Rental">Rental</option>
+          </select>
+        </label>
+
+        <label>
+          Brand
+          <input id="brand" placeholder="Toyota, Crown, Raymond" />
+        </label>
+
+        <label>
+          Model
+          <input id="model" placeholder="750-R45TT" />
+        </label>
+
+        <label>
+          Serial
+          <input id="serial" placeholder="Serial number" />
+        </label>
+
+        <button type="submit" class="primary-btn">Add Lift</button>
+      </form>
+    </section>
+
+    <section class="stats-grid">
+      <div class="stat-card">
+        <span>Total Lifts</span>
+        <strong id="totalCount">0</strong>
+      </div>
+      <div class="stat-card owned-stat">
+        <span>Owned</span>
+        <strong id="ownedCount">0</strong>
+      </div>
+      <div class="stat-card rental-stat">
+        <span>Rental</span>
+        <strong id="rentalCount">0</strong>
+      </div>
+    </section>
+
+    <section class="card table-card">
+      <div class="table-top">
+        <h2>Lift List</h2>
+        <input id="searchInput" placeholder="Search lift, brand, model, serial..." />
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Lift</th>
+              <th>Type</th>
+              <th>Owned/Rental</th>
+              <th>Brand</th>
+              <th>Model</th>
+              <th>Serial</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="liftTableBody"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
